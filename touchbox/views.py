@@ -1,11 +1,11 @@
 from django.shortcuts import render
 
-from touchbox.models import Competition, Players, TouchMap
+from touchbox.models import Competition, Player, TouchMap
 
 
 def playerList(request):
     season = request.GET.get("season", None)
-    players = Players.objects.filter(season=season)
+    players = Player.objects.filter(season=season)
     context = {'players': players}
     return render(request, 'touchbox/player.html', context)
 
@@ -13,7 +13,7 @@ def playerList(request):
 def playerDetail(request, pk):
     season = request.GET.get("season", None)
     print(season)
-    player = Players.objects.get(id=pk)
+    player = Player.objects.get(id=pk)
     competition = Competition.objects.filter(season=season)
     context = {'player': player, 'competitions': competition}
     return render(request, 'touchbox/playerDetail.html', context)

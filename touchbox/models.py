@@ -4,7 +4,7 @@ from django.db import models
 # Create your models here.
 
 
-class Players(models.Model):
+class Player(models.Model):
     name = models.CharField(max_length=64, null=True)
     initial = models.CharField(max_length=4, null=True)
     profile_pic = models.CharField(max_length=1024, null=True)
@@ -14,7 +14,6 @@ class Players(models.Model):
 
 class Competition(models.Model):
     name = models.CharField(max_length=64, null=True)
-    type = models.CharField(max_length=64, null=True)
     matchdate = models.DateField()
     opponent = models.CharField(max_length=64, null=True)
     location = models.CharField(max_length=64, null=True)  # home/away
@@ -24,7 +23,7 @@ class Competition(models.Model):
 
 class TouchMap(models.Model):
     competition = models.ForeignKey("Competition", related_name="touchmap", on_delete=models.CASCADE)
-    player = models.ForeignKey("Players", related_name="touchmap", on_delete=models.CASCADE)
+    player = models.ForeignKey("Player", related_name="touchmap", on_delete=models.CASCADE)
     playingtime = models.IntegerField()
     rating = models.FloatField()
     area1 = models.IntegerField()

@@ -21,7 +21,9 @@
         <tbody>
         {% for competition in competitions %}
             <tr>
-                <td>{{ competition.id }}</td>
+                <a href="http://localhost:8000/touchbox/touchmaps/{{ competition.id }}/?season={{ competition.season }}">
+                    <td>{{ competition.id }}</td>
+                </a>
                 <td>{{ competition.name }}</td>
                 <td>{{ competition.type }}</td>
                 <td>{{ competition.matchdate }}</td>
