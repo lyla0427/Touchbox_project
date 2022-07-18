@@ -5,8 +5,6 @@ requirements.txt
 
 # custom files
 touchbox/migrations/
-wsgi.py
-asgi.py
 setting_secrets.py
 __pycache__
 *.log
