@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="container">
+
+    <script src="https://code.highcharts.com/highcharts.src.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script>
+
+        $.ajax({
+            url: "{% url 'touchbox:touchmap_detail' %}",
+            dataType: 'json',
+            success: function (data) {
+
+                Highcharts.chart('container', {
+
+                    title: {
+                        text: 'Chart drawing'
+                    },
+                    series: [{
+                        name: "line name",
+                        data: data
+                    }],
+
+                    responsive: {
+                        rules: [{
+                            condition: {
+                                maxWidth: 500
+                            },
+                            chartOptions: {
+                                legend: {
+                                    layout: 'horizontal',
+                                    align: 'center',
+                                    verticalAlign: 'bottom'
+                                }
+                            }
+                        }]
+                    }
+
+                });
+            }
+        });
+
+    </script>
+</div>
+</body>
+</html>

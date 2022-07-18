@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>TouchBox</title>
+</head>
+<body>
+<h1>{{ player.name }}</h1>
+
+{% block content %}
+    <table>
+        <thead>
+        <th>id</th>
+        <th>name</th>
+        <th>type</th>
+        <th>matchdate</th>
+        <th>opponent</th>
+        <th>location</th>
+        <th>wdl</th>
+        </thead>
+        <tbody>
+        {% for competition in competitions %}
+            <tr>
+                <td>{{ competition.id }}</td>
+                <td>{{ competition.name }}</td>
+                <td>{{ competition.type }}</td>
+                <td>{{ competition.matchdate }}</td>
+                <td>{{ competition.opponent }}</td>
+                <td>{{ competition.location }}</td>
+                <td>{{ competition.wdl }}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock content %}
+</body>
+</html>
