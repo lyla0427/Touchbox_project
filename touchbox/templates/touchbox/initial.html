@@ -2,16 +2,44 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'touchbox/style.css' %}">
     <title>TouchBox</title>
 </head>
 <body>
-<h1>Chelsea Touch Area Data Project</h1>
-<a href="http://localhost:8000/touchbox/players?season=20202021">2020-2021</a>
-<a href="http://localhost:8000/touchbox/players?season=20212022">2021-2022</a>
+<div id="jb-container">
+    <div id="jb-header">
+        <div class="jb-wrap">
+            <div class="jb-image"><img src="{% static 'touchbox/soccer.jpeg' %}" alt="">
+            </div>
+            <div class="jb-text">
+                <p>Chelsea Touch Area Data Project</p>
+            </div>
+        </div>
+    </div>
+    <div id="jb-content">
+        <h2>Content</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean nec mollis nulla. Phasellus lacinia tempus
+            mauris eu laoreet. Proin gravida velit dictum dui consequat malesuada. Aenean et nibh eu purus scelerisque
+            aliquet nec non justo. Aliquam vitae aliquet ipsum. Etiam condimentum varius purus ut ultricies. Mauris id
+            odio pretium, sollicitudin sapien eget, adipiscing risus.</p>
+    </div>
+    <div id="jb-sidebar">
+        <h2>Sidebar</h2>
+        <ul>
+            <a href="http://localhost:8000/touchbox/players?season=20202021">2020-2021</a>
+            <a href="http://localhost:8000/touchbox/players?season=20212022">2021-2022</a>
+            <a href="http://localhost:8000/touchbox/about/">About</a>
+        </ul>
+    </div>
+    <div id="jb-footer">
+        <p>Copyright</p>
+    </div>
+</div>
 
-{#<a href="http://localhost:8000/touchbox/competitions?season=20202021">2020-2021</a>#}
-{#<a href="http://localhost:8000/touchbox/competitions?season=20212022">2021-2022</a>#}
-<a href="http://localhost:8000/touchbox/about/">About</a>
+
+c
+
 
 </body>
 </html>

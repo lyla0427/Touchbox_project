@@ -15,5 +15,5 @@ urlpatterns = [
     path('players/', views.playerList),
     path('players/<int:pk>/', views.playerDetail),
     path("competitions/", views.competitionList),
-    path('touchmaps/', views.touchMapDetail, name='touchmap-detail')
+    path('touchmaps/', views.touchMap, name='touchmap_detail')
 ]

@@ -3,9 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <title>TouchBox</title>
+    <title>FC-python wrapper</title>
+
+    <!-- If you are using downloaded FusionCharts libraries, uncomment the below code   -->
+
+
+    {% load static %}
+    <script type="text/javascript" src="{% static "fusionchart/fusioncharts.js" %}"></script>
+    <script type="text/javascript" src="{% static "fusionchart/themes/fusioncharts.theme.fusion.js" %}"></script>
+
+    <script type="text/javascript" src="//cdn.fusioncharts.com/fusioncharts/latest/fusioncharts.js"></script>
+    <script type="text/javascript"
+            src="//cdn.fusioncharts.com/fusioncharts/latest/themes/fusioncharts.theme.fusion.js"></script>
 </head>
+
 <body>
+
 <h1>{{ player.name }}</h1>
+
+<h3>{{ chartTitle1|safe }}</h3>
+<div id="chart-1">{{ output1|safe }}</div>
+
+<h3>{{ chartTitle2|safe }}</h3>
+<div id="chart-2">{{ output2|safe }}</div>
+<br/>
+
+<h3>{{ chartTitle3|safe }}</h3>
+<div id="chart-3">{{ output3|safe }}</div>
+<br/>
 
 {% block content %}
     <table>
@@ -21,12 +46,14 @@
         <tbody>
         {% for competition in competitions %}
             <tr>
-                <a href="http://localhost:8000/touchbox/touchmaps/{{ competition.id }}/?season={{ competition.season }}">
-                    <td>{{ competition.id }}</td>
-                </a>
+                <td>
+                    <a href="http://localhost:8000/touchbox/touchmaps?player={{ player.id }}&competition={{ competition.id }}">
+                        {{ competition.id }}</a>
+                </td>
+
                 <td>{{ competition.name }}</td>
                 <td>{{ competition.type }}</td>
-                <td>{{ competition.matchdate }}</td>
+                {#                <td>{{ competition.matchdate }}</td>#}
                 <td>{{ competition.opponent }}</td>
                 <td>{{ competition.location }}</td>
                 <td>{{ competition.wdl }}</td>

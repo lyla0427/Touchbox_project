@@ -2,50 +2,55 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'touchbox/style.css' %}">
     <title>Title</title>
 </head>
-<body>
-<div id="container">
+<br>
 
-    <script src="https://code.highcharts.com/highcharts.src.js"></script>
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-    <script>
+<h1>{{ player_number }} & {{ player_name }} vs {{ opponent }}</h1>
+<div>
+    <div class="nextto"></div>
+    <div class="nextto"></div>
+    <div class="nextto"></div>
+    <div class="nextto"></div>
+    <div class="nextto"></div>
+    <div class="nextto"></div>
+    <br>
+    <div class="bignextto"></div>
+    <div class="middlenextto"></div>
+    <div class="middlenextto"></div>
+    <div class="middlenextto"></div>
+    <div class="middlenextto"></div>
 
-        $.ajax({
-            url: "{% url 'touchbox:touchmap_detail' %}",
-            dataType: 'json',
-            success: function (data) {
-
-                Highcharts.chart('container', {
-
-                    title: {
-                        text: 'Chart drawing'
-                    },
-                    series: [{
-                        name: "line name",
-                        data: data
-                    }],
-
-                    responsive: {
-                        rules: [{
-                            condition: {
-                                maxWidth: 500
-                            },
-                            chartOptions: {
-                                legend: {
-                                    layout: 'horizontal',
-                                    align: 'center',
-                                    verticalAlign: 'bottom'
-                                }
-                            }
-                        }]
-                    }
-
-                });
-            }
-        });
-
-    </script>
+    <div class="bignextto"></div>
+    <br>
+    <div class="nextto"></div>
+    <div class="nextto"></div>
+    <div class="nextto"></div>
+    <div class="nextto"></div>
+    <div class="nextto"></div>
+    <div class="nextto"></div>
+    <br>
+    <div class="box">
+    </div>
 </div>
+
+
+
+{% block content %}
+    <table>
+        <thead>
+        <th>Game</th>
+        <th>Touches</th>
+        </thead>
+        {% for key, value in touchmap.items %}
+            <tr>
+                <td>{{ key }}</td>
+                <td>{{ value }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+{% endblock content %}
 </body>
 </html>
