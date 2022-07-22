@@ -2,40 +2,40 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     {% load static %}
     <link rel="stylesheet" type="text/css" href="{% static 'touchbox/style.css' %}">
+    <script type="text/javascript" src="/static/js/grid.js"></script>
     <title>Title</title>
 </head>
 <br>
-
+<body>
 <h1>{{ player_number }} & {{ player_name }} vs {{ opponent }}</h1>
-<div>
-    <div class="nextto"></div>
-    <div class="nextto"></div>
-    <div class="nextto"></div>
-    <div class="nextto"></div>
-    <div class="nextto"></div>
-    <div class="nextto"></div>
-    <br>
-    <div class="bignextto"></div>
-    <div class="middlenextto"></div>
-    <div class="middlenextto"></div>
-    <div class="middlenextto"></div>
-    <div class="middlenextto"></div>
-
-    <div class="bignextto"></div>
-    <br>
-    <div class="nextto"></div>
-    <div class="nextto"></div>
-    <div class="nextto"></div>
-    <div class="nextto"></div>
-    <div class="nextto"></div>
-    <div class="nextto"></div>
-    <br>
-    <div class="box">
-    </div>
+<div class="wrapper">
+    <div class="box one">{{ touchmap.area1 }}</div>
+    <div class="box one">20</div>
+    <div class="box one">40</div>
+    <div class="box one">60</div>
+    <div class="box one">80</div>
+    <div class="box one">10</div>
+    <div class="box seven">20</div>
+    <div class="box one">30</div>
+    <div class="box one">40</div>
+    <div class="box one">50</div>
+    <div class="box one">60</div>
+    <div class="box twelve">70</div>
+    <div class="box one">80</div>
+    <div class="box one">90</div>
+    <div class="box one">100</div>
+    <div class="box one">10</div>
+    <div class="box one">20</div>
+    <div class="box one">98</div>
+    <div class="box one">49</div>
+    <div class="box one">36</div>
+    <div class="box one">23</div>
+    <div class="box one">75</div>
 </div>
-
 
 
 {% block content %}
