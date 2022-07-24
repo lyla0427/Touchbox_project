@@ -9,7 +9,18 @@
       type="text/css"
       href="{% static 'touchbox/style.css' %}"
     />
+    <style>
+        .playerWrapper {
+          display: flex;
+        }
+    
+        .playerValue {
+          display: flex;
+          flex-direction: column;
+        }
+      </style>
   </head>
+
   <body>
     <h1>{{ season }}</h1>
     {% block content %}
