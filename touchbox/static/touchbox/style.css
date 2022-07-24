@@ -96,3 +96,8 @@
 .fourth-color {
     background: #ef5a5a;
 }
+
+.playerWrapper{
+    display: flex;
+    
+}

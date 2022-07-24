@@ -1,20 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
     <title>Title</title>
-</head>
-<body>
-<h1>{{ season }}</h1>
-{% block content %}
-    {% for player in players %}
-        <div>
-            <img src={{ player.profile_pic }} width="200" height="200">
-            <a href="http://localhost:8000/touchbox/players/{{ player.number }}/?season={{ player.season }}">{{ player.number }}</a>
-            {{ player.name }}
-            {{ player.initial }}
-        </div>
-    {% endfor %}
-{% endblock content %}
-</body>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{% static 'touchbox/style.css' %}"
+    />
+  </head>
+  <body>
+    <h1>{{ season }}</h1>
+    {% block content %}
+    <div class="playerWrapper">
+      {% for player in players %}
+      <div>
+        <img src="{{" player.profile_pic }} width="200" height="200" />
+        <a
+          href="http://localhost:8000/touchbox/players/{{ player.number }}/?season={{ player.season }}"
+          >{{ player.number }}</a
+        >
+        {{ player.name }} {{ player.initial }}
+      </div>
+      {% endfor %}
+    </div>
+    {% endblock content %}
+  </body>
 </html>
