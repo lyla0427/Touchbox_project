@@ -37,6 +37,26 @@ body {
   border: 1px solid #bcbcbc;
 }
 
+.jb-image{
+  background-image: url('./soccer.jpeg');
+  height: 300px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#jb-sidebar {
+  display: flex;
+    align-items: center;
+    gap:200px;
+    justify-content: center;
+    background-color: violet;
+    height: 300px;
+}
+
 @media (max-width: 480px) {
   #jb-container {
     width: auto;
@@ -47,10 +67,10 @@ body {
     width: auto;
   }
 
-  #jb-sidebar {
+  /* #jb-sidebar {
     float: none;
-    width: auto;
-  }
+    width: auto; */
+  /* } */
 }
 
 .wrapper {
