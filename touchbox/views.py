@@ -183,7 +183,6 @@ def playerDetail(request, pk):
         linedataSource["data"].append(data)
 
     linechartObj = FusionCharts('line', 'ex3', '600', '400', 'chart-3', 'json', linedataSource)
-    print(competition[0].touchmap[0].playingtime)
 
     return render(request, 'touchbox/playerDetail.html',
                   {'output1': column2D.render(), 'chartTitle1': 'Simple Chart Using Array',
