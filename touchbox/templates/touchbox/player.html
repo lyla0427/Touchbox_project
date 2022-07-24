@@ -1,41 +1,65 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
+<head>
+    <meta charset="UTF-8"/>
     <title>Title</title>
     {% load static %}
     <link
-      rel="stylesheet"
-      type="text/css"
-      href="{% static 'touchbox/style.css' %}"
+            rel="stylesheet"
+            type="text/css"
+            href="{% static 'touchbox/style.css' %}"
     />
     <style>
         .playerWrapper {
-          display: flex;
-        }
-    
-        .playerValue {
-          display: flex;
-          flex-direction: column;
-        }
-      </style>
-  </head>
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
 
-  <body>
-    <h1>{{ season }}</h1>
-    {% block content %}
+        }
+
+        .playerValue {
+            display: flex;
+            flex-direction: column;
+            border: 1px solid black;
+            border-radius: 5px;
+            padding: 10px;
+            gap: 10px;
+        }
+
+        .playerLabel {
+            justify-content: center;
+            display: flex;
+            gap: 10px;
+        }
+
+        .playLink {
+            color: black;
+            text-decoration: none;
+        }
+
+    </style>
+</head>
+
+<body>
+<h1>{{ season }}</h1>
+{% block content %}
     <div class="playerWrapper">
-      {% for player in players %}
-      <div class="playerValue">
-        <img src="{{" player.profile_pic }} width="200" height="200" />
-        <a
-          href="http://localhost:8000/touchbox/players/{{ player.number }}/?season={{ player.season }}"
-          >{{ player.number }}</a
-        >
-        {{ player.name }} {{ player.initial }}
-      </div>
-      {% endfor %}
+        {% for player in players %}
+            <div class="playerValue">
+
+                <img src={{ player.profile_pic }} width="200" height="200"/>
+                <div class="playerLabel">
+                    <a
+                            href="http://localhost:8000/touchbox/players/{{ player.number }}/?season={{ player.season }}"
+                            class="playLink"
+                    >{{ player.number }}
+                        {{ player.name }} {{ player.initial }}
+                    </a
+                    >
+                </div>
+            </div>
+        {% endfor %}
     </div>
-    {% endblock content %}
-  </body>
+{% endblock content %}
+</body>
 </html>
