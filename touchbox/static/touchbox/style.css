@@ -1,103 +1,111 @@
+body {
+  width: 100vw;
+}
+
 #jb-container {
-    width: 940px;
-    margin: 10px auto;
-    padding: 20px;
-    border: 1px solid #bcbcbc;
+  width: 940px;
+  margin: 10px auto;
+  padding: 20px;
+  border: 1px solid #bcbcbc;
 }
 
 #jb-header {
-    padding: 20px;
-    margin-bottom: 20px;
-    border: 1px solid #bcbcbc;
+  padding: 20px;
+  margin-bottom: 20px;
+  border: 1px solid #bcbcbc;
 }
 
 #jb-content {
-    width: 580px;
-    padding: 20px;
-    margin-bottom: 20px;
-    float: left;
-    border: 1px solid #bcbcbc;
+  width: 580px;
+  padding: 20px;
+  margin-bottom: 20px;
+  float: left;
+  border: 1px solid #bcbcbc;
 }
 
 #jb-sidebar {
-    width: 260px;
-    padding: 20px;
-    margin-bottom: 20px;
-    float: right;
-    border: 1px solid #bcbcbc;
+  width: 260px;
+  padding: 20px;
+  margin-bottom: 20px;
+  float: right;
+  border: 1px solid #bcbcbc;
 }
 
 #jb-footer {
-    clear: both;
-    padding: 20px;
-    border: 1px solid #bcbcbc;
+  clear: both;
+  padding: 20px;
+  border: 1px solid #bcbcbc;
 }
 
-@media ( max-width: 480px ) {
-    #jb-container {
-        width: auto;
-    }
+@media (max-width: 480px) {
+  #jb-container {
+    width: auto;
+  }
 
-    #jb-content {
-        float: none;
-        width: auto;
-    }
+  #jb-content {
+    float: none;
+    width: auto;
+  }
 
-    #jb-sidebar {
-        float: none;
-        width: auto;
-    }
+  #jb-sidebar {
+    float: none;
+    width: auto;
+  }
 }
 
 .wrapper {
-    width: 700px;
-    height: 500px;
+  width: 700px;
+  height: 500px;
 
-    display: grid;
-    grid-template-columns: repeat(6, 1fr);
-    gap: 10px;
-    grid-template-rows:repeat(4, minmax(100px, auto));
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 10px;
+  grid-template-rows: repeat(4, minmax(100px, auto));
 }
 
 .seven {
-    grid-row-start: 2;
-    grid-row-end: 4;
-    background-color: yellow;
+  grid-row-start: 2;
+  grid-row-end: 4;
+  background-color: yellow;
 }
 
 .twelve {
-    grid-row-start: 2;
-    grid-row-end: 4;
-    grid-column-start: 6;
-    grid-column-end: 7;
-    background-color: yellow;
+  grid-row-start: 2;
+  grid-row-end: 4;
+  grid-column-start: 6;
+  grid-column-end: 7;
+  background-color: yellow;
 }
 
 .box {
-    background-color: yellow;
-    border-color: black;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  background-color: yellow;
+  border-color: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .first-color {
-    background: white;
+  background: white;
 }
 
 .second-color {
-    background: lightpink;
+  background: lightpink;
 }
 
 .third-color {
-    background: lightcoral;
+  background: lightcoral;
 }
 
 .fourth-color {
-    background: #ef5a5a;
+  background: #ef5a5a;
 }
 
-.playerWrapper{
-    display: flex;
-    
+.playerWrapper {
+  display: flex;
+}
+
+.playerValue {
+  display: flex;
+  flex-direction: column;
 }

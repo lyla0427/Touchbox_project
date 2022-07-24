@@ -3,6 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <title>Title</title>
+    {% load static %}
     <link
       rel="stylesheet"
       type="text/css"
@@ -14,7 +15,7 @@
     {% block content %}
     <div class="playerWrapper">
       {% for player in players %}
-      <div>
+      <div class="playerValue">
         <img src="{{" player.profile_pic }} width="200" height="200" />
         <a
           href="http://localhost:8000/touchbox/players/{{ player.number }}/?season={{ player.season }}"
