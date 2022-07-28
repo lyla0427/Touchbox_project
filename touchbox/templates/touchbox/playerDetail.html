@@ -16,6 +16,79 @@
     <script type="text/javascript"
             src="//cdn.fusioncharts.com/fusioncharts/latest/themes/fusioncharts.theme.fusion.js"></script>
     <style>
+
+        .wrapper {
+            width: 700px;
+            height: 500px;
+
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            gap: 10px;
+            grid-template-rows: repeat(4, minmax(100px, auto));
+        }
+
+        .seven {
+            grid-row-start: 2;
+            grid-row-end: 4;
+
+        }
+
+        .twelve {
+            grid-row-start: 2;
+            grid-row-end: 4;
+            grid-column-start: 6;
+            grid-column-end: 7;
+
+        }
+
+        .box {
+            background-color: #fff;
+            border: 1px solid black;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .first-color {
+            background: white;
+        }
+
+        .second-color {
+            background: #f1cbcb;
+        }
+
+        .third-color {
+            background: #f3aeae;
+        }
+
+        .fourth-color {
+            background: #efa6a6;
+        }
+
+        .fifth-color {
+            background: #ef9494;
+        }
+
+        .sixth-color {
+            background: #ee6d6d;
+        }
+
+        .seventh-color {
+            background: #ec6767;
+        }
+
+        .eighth-color {
+            background: #ef5a5a;
+        }
+
+        .ninth-color {
+            background: #ec3838;
+        }
+
+        .tenth-color {
+            background: #e70909;
+        }
+
         .playerDetailHeader {
             height: 100px;
             display: flex;
@@ -27,7 +100,7 @@
         .chartWrapper {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            gap: 10px;
+            gap: 40px;
             grid-template-rows: repeat(2, minmax(100px, auto));
         }
 
@@ -65,13 +138,40 @@
         <h3>{{ chartTitle3|safe }}</h3>
         <div id="chart-3">{{ output3|safe }}</div>
     </div>
+    <div>
+        <h3>Simple chart</h3>
+        <div class="wrapper">
+            <div class="box one">20</div>
+            <div class="box one">20</div>
+            <div class="box one">0</div>
+            <div class="box one">0</div>
+            <div class="box one">0</div>
+            <div class="box one">0</div>
+            <div class="box seven">0</div>
+            <div class="box one">0</div>
+            <div class="box one">0</div>
+            <div class="box one">0</div>
+            <div class="box one">0</div>
+            <div class="box twelve">0</div>
+            <div class="box one">0</div>
+            <div class="box one">0</div>
+            <div class="box one">0</div>
+            <div class="box one">0</div>
+            <div class="box one">0</div>
+            <div class="box one">0</div>
+            <div class="box one">0</div>
+            <div class="box one">0</div>
+            <div class="box one">0</div>
+            <div class="box one">0</div>
+        </div>
+    </div>
 </div>
+
 {% block content %}
     <table>
         <thead>
         <th>id</th>
         <th>name</th>
-        <th>type</th>
         <th>matchdate</th>
         <th>opponent</th>
         <th>location</th>
@@ -88,7 +188,6 @@
                     </td>
 
                     <td>{{ competition.name }}</td>
-                    <td>{{ competition.type }}</td>
                     <td>{{ competition.matchdate }}</td>
                     <td>{{ competition.opponent }}</td>
                     <td>{{ competition.location }}</td>
