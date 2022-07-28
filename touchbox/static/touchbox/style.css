@@ -23,13 +23,6 @@ body {
     border: 1px solid #bcbcbc;
 }
 
-#jb-sidebar {
-    width: 260px;
-    padding: 20px;
-    margin-bottom: 20px;
-    float: right;
-    border: 1px solid #bcbcbc;
-}
 
 #jb-footer {
     clear: both;
@@ -37,25 +30,6 @@ body {
     border: 1px solid #bcbcbc;
 }
 
-.jb-image {
-    background-image: url('./soccer.jpeg');
-    height: 300px;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-#jb-sidebar {
-    display: flex;
-    align-items: center;
-    gap: 200px;
-    justify-content: center;
-    background-color: violet;
-    height: 300px;
-}
 
 @media (max-width: 480px) {
     #jb-container {
@@ -68,77 +42,6 @@ body {
     }
 }
 
-.wrapper {
-    width: 700px;
-    height: 500px;
-
-    display: grid;
-    grid-template-columns: repeat(6, 1fr);
-    gap: 10px;
-    grid-template-rows: repeat(4, minmax(100px, auto));
-}
-
-.seven {
-    grid-row-start: 2;
-    grid-row-end: 4;
-    background-color: yellow;
-}
-
-.twelve {
-    grid-row-start: 2;
-    grid-row-end: 4;
-    grid-column-start: 6;
-    grid-column-end: 7;
-    background-color: yellow;
-}
-
-.box {
-    background-color: yellow;
-    border-color: black;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.first-color {
-    background: white;
-}
-
-.second-color {
-    background: #f1cbcb;
-}
-
-.third-color {
-    background: #f3aeae;
-}
-
-.fourth-color {
-    background: #efa6a6;
-}
-
-.fifth-color {
-    background: #ef9494;
-}
-
-.sixth-color {
-    background: #ee6d6d;
-}
-
-.seventh-color {
-    background: #ec6767;
-}
-
-.eighth-color {
-    background: #ef5a5a;
-}
-
-.ninth-color {
-    background: #ec3838;
-}
-
-.tenth-color {
-    background: #e70909;
-}
 
 .playerWrapper {
     display: flex;

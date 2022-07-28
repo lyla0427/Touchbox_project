@@ -37,11 +37,22 @@
             text-decoration: none;
         }
 
+        .playerHeader {
+            height: 100px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+        }
     </style>
 </head>
 
 <body>
-<h1>{{ season }}</h1>
+
+
+<div class="playerHeader">
+    <h1>{{ season }}</h1>
+</div>
 {% block content %}
     <div class="playerWrapper">
         {% for player in players %}

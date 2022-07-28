@@ -1,10 +1,13 @@
 window.addEventListener("load", () => {
     [...document.querySelectorAll(".box")].forEach((el) => {
         const util = new SetData(el);
+
         util.classSet();
         util.classText();
     });
+
 });
+
 
 class SetData {
     #firstColor = "first-color";
@@ -24,10 +27,15 @@ class SetData {
     }
 
     classSet() {
-        if (0 < this.#text && this.#text <= 25) {
+        if (0.0 === this.#text) {
+            console.log('abababasdbas')
             this.element.classList.add("first-color");
         }
-        if (25 < this.#text && this.#text <= 50) {
+        if (0 <= this.#text && this.#text <= 10) {
+            console.log('abababasdbas')
+            this.element.classList.add("first-color");
+        }
+        if (10 < this.#text && this.#text <= 20) {
             this.element.classList.add("second-color");
         }
         if (50 < this.#text && this.#text <= 75) {

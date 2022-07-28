@@ -15,23 +15,57 @@
     <script type="text/javascript" src="//cdn.fusioncharts.com/fusioncharts/latest/fusioncharts.js"></script>
     <script type="text/javascript"
             src="//cdn.fusioncharts.com/fusioncharts/latest/themes/fusioncharts.theme.fusion.js"></script>
+    <style>
+        .playerDetailHeader {
+            height: 100px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+        }
+
+        .chartWrapper {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+            grid-template-rows: repeat(2, minmax(100px, auto));
+        }
+
+        table {
+            width: 100%;
+        }
+
+        tr {
+            height: 30px;
+        }
+
+        td {
+            text-align: -webkit-center;
+            height: 30px;
+        }
+    </style>
+
 </head>
 
 <body>
+<div class="playerDetailHeader">
+    <h1>{{ player.name }}</h1>
+</div>
+<div class="chartWrapper">
+    <div>
+        <h3>{{ chartTitle1|safe }}</h3>
+        <div id="chart-1">{{ output1|safe }}</div>
+    </div>
+    <div>
+        <h3>{{ chartTitle2|safe }}</h3>
+        <div id="chart-2">{{ output2|safe }}</div>
+    </div>
 
-<h1>{{ player.name }}</h1>
-
-<h3>{{ chartTitle1|safe }}</h3>
-<div id="chart-1">{{ output1|safe }}</div>
-
-<h3>{{ chartTitle2|safe }}</h3>
-<div id="chart-2">{{ output2|safe }}</div>
-<br/>
-
-<h3>{{ chartTitle3|safe }}</h3>
-<div id="chart-3">{{ output3|safe }}</div>
-<br/>
-
+    <div>
+        <h3>{{ chartTitle3|safe }}</h3>
+        <div id="chart-3">{{ output3|safe }}</div>
+    </div>
+</div>
 {% block content %}
     <table>
         <thead>
@@ -47,20 +81,23 @@
         <tbody>
         {% for competition in competitions %}
             <tr>
-                <td>
-                    <a href="http://localhost:8000/touchbox/touchmaps?player={{ player.id }}&competition={{ competition.id }}">
-                        {{ competition.id }}</a>
-                </td>
+                <a>
+                    <td>
+                        <a href="http://localhost:8000/touchbox/touchmaps?player={{ player.id }}&competition={{ competition.id }}">
+                            {{ competition.id }}</a>
+                    </td>
 
-                <td>{{ competition.name }}</td>
-                <td>{{ competition.type }}</td>
-                <td>{{ competition.matchdate }}</td>
-                <td>{{ competition.opponent }}</td>
-                <td>{{ competition.location }}</td>
-                <td>{{ competition.wdl }}</td>
-                <td>{{ competition.touchmap }}</td>
+                    <td>{{ competition.name }}</td>
+                    <td>{{ competition.type }}</td>
+                    <td>{{ competition.matchdate }}</td>
+                    <td>{{ competition.opponent }}</td>
+                    <td>{{ competition.location }}</td>
+                    <td>{{ competition.wdl }}</td>
+                    <td>{{ competition.touchmap }}</td>
+                </a>
             </tr>
         {% endfor %}
+
         </tbody>
     </table>
 {% endblock content %}
