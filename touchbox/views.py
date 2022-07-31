@@ -212,28 +212,50 @@ def playerDetail(request, pk):
 
     soccerfieldChart = OrderedDict()
     total = touchmap.aggregate(total=Sum("total", default=1))["total"]
-    soccerfieldChart["area1"] = round(touchmap.aggregate(area=Sum("area1", default=0))["area"] / total, 1) * 100
-    soccerfieldChart["area2"] = round(touchmap.aggregate(area=Sum("area2", default=0))["area"] / total, 1) * 100
-    soccerfieldChart["area3"] = round(touchmap.aggregate(area=Sum("area3", default=0))["area"] / total, 1) * 100
-    soccerfieldChart["area4"] = round(touchmap.aggregate(area=Sum("area4", default=0))["area"] / total, 1) * 100
-    soccerfieldChart["area5"] = round(touchmap.aggregate(area=Sum("area5", default=0))["area"] / total, 1) * 100
-    soccerfieldChart["area6"] = round(touchmap.aggregate(area=Sum("area6", default=0))["area"] / total, 1) * 100
-    soccerfieldChart["area7"] = round(touchmap.aggregate(area=Sum("area7", default=0))["area"] / total, 1) * 100
-    soccerfieldChart["area8"] = round(touchmap.aggregate(area=Sum("area8", default=0))["area"] / total, 1) * 100
-    soccerfieldChart["area9"] = round(touchmap.aggregate(area=Sum("area9", default=0))["area"] / total, 1) * 100
-    soccerfieldChart["area10"] = round(touchmap.aggregate(area=Sum("area10", default=0))["area"] / total, 1) * 100
-    soccerfieldChart["area11"] = round(touchmap.aggregate(area=Sum("area11", default=0))["area"] / total, 1) * 100
-    soccerfieldChart["area12"] = round(touchmap.aggregate(area=Sum("area12", default=0))["area"] / total, 1) * 100
-    soccerfieldChart["area13"] = round(touchmap.aggregate(area=Sum("area13", default=0))["area"] / total, 1) * 100
-    soccerfieldChart["area14"] = round(touchmap.aggregate(area=Sum("area14", default=0))["area"] / total, 1) * 100
-    soccerfieldChart["area15"] = round(touchmap.aggregate(area=Sum("area15", default=0))["area"] / total, 1) * 100
-    soccerfieldChart["area16"] = round(touchmap.aggregate(area=Sum("area16", default=0))["area"] / total, 1) * 100
-    soccerfieldChart["area17"] = round(touchmap.aggregate(area=Sum("area17", default=0))["area"] / total, 1) * 100
-    soccerfieldChart["area18"] = round(touchmap.aggregate(area=Sum("area18", default=0))["area"] / total, 1) * 100
-    soccerfieldChart["area19"] = round(touchmap.aggregate(area=Sum("area19", default=0))["area"] / total, 1) * 100
-    soccerfieldChart["area20"] = round(touchmap.aggregate(area=Sum("area20", default=0))["area"] / total, 1) * 100
-    soccerfieldChart["area21"] = round(touchmap.aggregate(area=Sum("area21", default=0))["area"] / total, 1) * 100
-    soccerfieldChart["area22"] = round(touchmap.aggregate(area=Sum("area22", default=0))["area"] / total, 1) * 100
+    soccerfieldChart["area1"] = round(
+        touchmap.aggregate(area=Sum("area1", filter=Q(area1__gt=1), default=0))["area"] / total, 2) * 100
+    soccerfieldChart["area2"] = round(
+        touchmap.aggregate(area=Sum("area2", filter=Q(area2__gt=1), default=0))["area"] / total, 2) * 100
+    soccerfieldChart["area3"] = round(
+        touchmap.aggregate(area=Sum("area3", filter=Q(area3__gt=1), default=0))["area"] / total, 2) * 100
+    soccerfieldChart["area4"] = round(
+        touchmap.aggregate(area=Sum("area4", filter=Q(area4__gt=1), default=0))["area"] / total, 2) * 100
+    soccerfieldChart["area5"] = round(
+        touchmap.aggregate(area=Sum("area5", filter=Q(area5__gt=1), default=0))["area"] / total, 2) * 100
+    soccerfieldChart["area6"] = round(
+        touchmap.aggregate(area=Sum("area6", filter=Q(area6__gt=1), default=0))["area"] / total, 2) * 100
+    soccerfieldChart["area7"] = round(
+        touchmap.aggregate(area=Sum("area7", filter=Q(area7__gt=1), default=0))["area"] / total, 2) * 100
+    soccerfieldChart["area8"] = round(
+        touchmap.aggregate(area=Sum("area8", filter=Q(area8__gt=1), default=0))["area"] / total, 2) * 100
+    soccerfieldChart["area9"] = round(
+        touchmap.aggregate(area=Sum("area9", filter=Q(area9__gt=1), default=0))["area"] / total, 2) * 100
+    soccerfieldChart["area10"] = round(
+        touchmap.aggregate(area=Sum("area10", filter=Q(area10__gt=1), default=0))["area"] / total, 2) * 100
+    soccerfieldChart["area11"] = round(
+        touchmap.aggregate(area=Sum("area11", filter=Q(area11__gt=1), default=0))["area"] / total, 2) * 100
+    soccerfieldChart["area12"] = round(
+        touchmap.aggregate(area=Sum("area12", filter=Q(area12__gt=1), default=0))["area"] / total, 2) * 100
+    soccerfieldChart["area13"] = round(
+        touchmap.aggregate(area=Sum("area13", filter=Q(area13__gt=1), default=0))["area"] / total, 2) * 100
+    soccerfieldChart["area14"] = round(
+        touchmap.aggregate(area=Sum("area14", filter=Q(area14__gt=1), default=0))["area"] / total, 2) * 100
+    soccerfieldChart["area15"] = round(
+        touchmap.aggregate(area=Sum("area15", filter=Q(area15__gt=1), default=0))["area"] / total, 2) * 100
+    soccerfieldChart["area16"] = round(
+        touchmap.aggregate(area=Sum("area16", filter=Q(area16__gt=1), default=0))["area"] / total, 2) * 100
+    soccerfieldChart["area17"] = round(
+        touchmap.aggregate(area=Sum("area17", filter=Q(area17__gt=1), default=0))["area"] / total, 2) * 100
+    soccerfieldChart["area18"] = round(
+        touchmap.aggregate(area=Sum("area18", filter=Q(area18__gt=1), default=0))["area"] / total, 2) * 100
+    soccerfieldChart["area19"] = round(
+        touchmap.aggregate(area=Sum("area19", filter=Q(area19__gt=1), default=0))["area"] / total, 2) * 100
+    soccerfieldChart["area20"] = round(
+        touchmap.aggregate(area=Sum("area20", filter=Q(area20__gt=1), default=0))["area"] / total, 2) * 100
+    soccerfieldChart["area21"] = round(
+        touchmap.aggregate(area=Sum("area21", filter=Q(area21__gt=1), default=0))["area"] / total, 2) * 100
+    soccerfieldChart["area22"] = round(
+        touchmap.aggregate(area=Sum("area22", filter=Q(area22__gt=1), default=0))["area"] / total, 2) * 100
     print(soccerfieldChart)
     return render(request, 'touchbox/playerDetail.html',
                   {'output1': column2D.render(), 'chartTitle1': 'Simple Chart Using Array',
