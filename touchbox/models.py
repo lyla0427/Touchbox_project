@@ -10,7 +10,7 @@ class Player(models.Model):
     profile_pic = models.CharField(max_length=1024, null=True)
     number = models.IntegerField()
     season = models.IntegerField(null=True)
-    most_touched_area = models.CharField(max_length=6, null=True)
+    most_touched_area = models.IntegerField(null=True)
 
 
 class Competition(models.Model):
