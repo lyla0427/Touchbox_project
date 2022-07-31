@@ -1,4 +1,4 @@
-from django.db.models import Count, Q
+from django.db.models import Count, Q, Sum
 
 from touchbox.fusioncharts import FusionCharts
 from touchbox.models import Competition, Player, TouchMap
@@ -124,7 +124,35 @@ def playerDetail(request, pk):
     # The `chartData` dict contains key-value pairs data
     chartData = OrderedDict()
     for queryset in touchmap:
-        chartData["20"] = queryset.rating
+        total = queryset.total if queryset.total != 0 else 1
+        most_touched_area = player.most_touched_area
+        mta_dic = {
+            1: queryset.area1,
+            2: queryset.area2,
+            3: queryset.area3,
+            4: queryset.area4,
+            5: queryset.area5,
+            6: queryset.area6,
+            7: queryset.area7,
+            8: queryset.area8,
+            9: queryset.area9,
+            10: queryset.area10,
+            11: queryset.area11,
+            12: queryset.area12,
+            13: queryset.area13,
+            14: queryset.area14,
+            15: queryset.area15,
+            16: queryset.area16,
+            17: queryset.area17,
+            18: queryset.area18,
+            19: queryset.area19,
+            20: queryset.area20,
+            21: queryset.area21,
+            22: queryset.area22,
+
+        }
+        mtc_percentage = round(mta_dic[most_touched_area] / total, 1) * 100
+        chartData[mtc_percentage] = queryset.rating
 
     scatterdataSource["chart"] = chartConfig
     scatterdataSource["categories"] = categoryConfig
@@ -137,10 +165,6 @@ def playerDetail(request, pk):
         "anchorsides": "1",
         "anchorradius": "3",
         "data": [
-            {
-                "x": "34",
-                "y": "0.2"
-            },
         ]
     }
     ]
@@ -184,10 +208,38 @@ def playerDetail(request, pk):
 
     linechartObj = FusionCharts('line', 'ex3', '600', '400', 'chart-3', 'json', linedataSource)
 
+    # soccerfieldChart
+
+    soccerfieldChart = OrderedDict()
+    total = touchmap.aggregate(total=Sum("total", default=1))["total"]
+    soccerfieldChart["area1"] = round(touchmap.aggregate(area=Sum("area1", default=0))["area"] / total, 1) * 100
+    soccerfieldChart["area2"] = round(touchmap.aggregate(area=Sum("area2", default=0))["area"] / total, 1) * 100
+    soccerfieldChart["area3"] = round(touchmap.aggregate(area=Sum("area3", default=0))["area"] / total, 1) * 100
+    soccerfieldChart["area4"] = round(touchmap.aggregate(area=Sum("area4", default=0))["area"] / total, 1) * 100
+    soccerfieldChart["area5"] = round(touchmap.aggregate(area=Sum("area5", default=0))["area"] / total, 1) * 100
+    soccerfieldChart["area6"] = round(touchmap.aggregate(area=Sum("area6", default=0))["area"] / total, 1) * 100
+    soccerfieldChart["area7"] = round(touchmap.aggregate(area=Sum("area7", default=0))["area"] / total, 1) * 100
+    soccerfieldChart["area8"] = round(touchmap.aggregate(area=Sum("area8", default=0))["area"] / total, 1) * 100
+    soccerfieldChart["area9"] = round(touchmap.aggregate(area=Sum("area9", default=0))["area"] / total, 1) * 100
+    soccerfieldChart["area10"] = round(touchmap.aggregate(area=Sum("area10", default=0))["area"] / total, 1) * 100
+    soccerfieldChart["area11"] = round(touchmap.aggregate(area=Sum("area11", default=0))["area"] / total, 1) * 100
+    soccerfieldChart["area12"] = round(touchmap.aggregate(area=Sum("area12", default=0))["area"] / total, 1) * 100
+    soccerfieldChart["area13"] = round(touchmap.aggregate(area=Sum("area13", default=0))["area"] / total, 1) * 100
+    soccerfieldChart["area14"] = round(touchmap.aggregate(area=Sum("area14", default=0))["area"] / total, 1) * 100
+    soccerfieldChart["area15"] = round(touchmap.aggregate(area=Sum("area15", default=0))["area"] / total, 1) * 100
+    soccerfieldChart["area16"] = round(touchmap.aggregate(area=Sum("area16", default=0))["area"] / total, 1) * 100
+    soccerfieldChart["area17"] = round(touchmap.aggregate(area=Sum("area17", default=0))["area"] / total, 1) * 100
+    soccerfieldChart["area18"] = round(touchmap.aggregate(area=Sum("area18", default=0))["area"] / total, 1) * 100
+    soccerfieldChart["area19"] = round(touchmap.aggregate(area=Sum("area19", default=0))["area"] / total, 1) * 100
+    soccerfieldChart["area20"] = round(touchmap.aggregate(area=Sum("area20", default=0))["area"] / total, 1) * 100
+    soccerfieldChart["area21"] = round(touchmap.aggregate(area=Sum("area21", default=0))["area"] / total, 1) * 100
+    soccerfieldChart["area22"] = round(touchmap.aggregate(area=Sum("area22", default=0))["area"] / total, 1) * 100
+    print(soccerfieldChart)
     return render(request, 'touchbox/playerDetail.html',
                   {'output1': column2D.render(), 'chartTitle1': 'Simple Chart Using Array',
                    'output2': scatterchartObj.render(), 'chartTitle2': 'Simple Chart Using Array',
                    'output3': linechartObj.render(), 'chartTitle3': 'Simple Chart Using Array',
+                   'output4': soccerfieldChart, 'chartTitle5': 'Simple Chart Using Array',
                    'player': player,
                    'competitions': competition})
 

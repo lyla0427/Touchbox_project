@@ -15,6 +15,8 @@
     <script type="text/javascript" src="//cdn.fusioncharts.com/fusioncharts/latest/fusioncharts.js"></script>
     <script type="text/javascript"
             src="//cdn.fusioncharts.com/fusioncharts/latest/themes/fusioncharts.theme.fusion.js"></script>
+    <script type="text/javascript" src="/static/js/grid.js" defer></script>
+
     <style>
 
         .wrapper {
@@ -141,28 +143,28 @@
     <div>
         <h3>Simple chart</h3>
         <div class="wrapper">
-            <div class="box one">20</div>
-            <div class="box one">20</div>
-            <div class="box one">0</div>
-            <div class="box one">0</div>
-            <div class="box one">0</div>
-            <div class="box one">0</div>
-            <div class="box seven">0</div>
-            <div class="box one">0</div>
-            <div class="box one">0</div>
-            <div class="box one">0</div>
-            <div class="box one">0</div>
-            <div class="box twelve">0</div>
-            <div class="box one">0</div>
-            <div class="box one">0</div>
-            <div class="box one">0</div>
-            <div class="box one">0</div>
-            <div class="box one">0</div>
-            <div class="box one">0</div>
-            <div class="box one">0</div>
-            <div class="box one">0</div>
-            <div class="box one">0</div>
-            <div class="box one">0</div>
+            <div class="box one">{{ output4.area1 }}</div>
+            <div class="box one">{{ output4.area2 }}</div>
+            <div class="box one">{{ output4.area3 }}</div>
+            <div class="box one">{{ output4.area4 }}</div>
+            <div class="box one">{{ output4.area5 }}</div>
+            <div class="box one">{{ output4.area6 }}</div>
+            <div class="box seven">{{ output4.area7 }}</div>
+            <div class="box one">{{ output4.area8 }}</div>
+            <div class="box one">{{ output4.area9 }}</div>
+            <div class="box one">{{ output4.area10 }}</div>
+            <div class="box one">{{ output4.area11 }}</div>
+            <div class="box twelve">{{ output4.area12 }}</div>
+            <div class="box one">{{ output4.area13 }}</div>
+            <div class="box one">{{ output4.area14 }}</div>
+            <div class="box one">{{ output4.area15 }}</div>
+            <div class="box one">{{ output4.area16 }}</div>
+            <div class="box one">{{ output4.area17 }}</div>
+            <div class="box one">{{ output4.area18 }}</div>
+            <div class="box one">{{ output4.area19 }}</div>
+            <div class="box one">{{ output4.area20 }}</div>
+            <div class="box one">{{ output4.area21 }}</div>
+            <div class="box one">{{ output4.area22 }}</div>
         </div>
     </div>
 </div>
@@ -176,7 +178,6 @@
         <th>opponent</th>
         <th>location</th>
         <th>wdl</th>
-        <th>playing time</th>
         </thead>
         <tbody>
         {% for competition in competitions %}
@@ -192,7 +193,6 @@
                     <td>{{ competition.opponent }}</td>
                     <td>{{ competition.location }}</td>
                     <td>{{ competition.wdl }}</td>
-                    <td>{{ competition.touchmap }}</td>
                 </a>
             </tr>
         {% endfor %}
