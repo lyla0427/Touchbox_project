@@ -28,12 +28,12 @@ class SetData {
 
     classSet() {
         if (0.0 === this.#text) {
+            this.element.classList.add("default-color");
+        }
+        if (0 < this.#text && this.#text <= 10) {
             this.element.classList.add("first-color");
         }
-        if (0 <= this.#text && this.#text < 10) {
-            this.element.classList.add("first-color");
-        }
-        if (10 <= this.#text && this.#text <= 20) {
+        if (10 < this.#text && this.#text <= 20) {
             this.element.classList.add("second-color");
         }
         if (20 < this.#text && this.#text <= 30) {
