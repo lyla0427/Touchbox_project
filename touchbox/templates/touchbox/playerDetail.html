@@ -15,7 +15,7 @@
     <script type="text/javascript" src="//cdn.fusioncharts.com/fusioncharts/latest/fusioncharts.js"></script>
     <script type="text/javascript"
             src="//cdn.fusioncharts.com/fusioncharts/latest/themes/fusioncharts.theme.fusion.js"></script>
-    <script type="text/javascript" src="/static/js/grid.js" defer></script>
+    <script type="text/javascript" src="/static/js/showcontent.js" defer></script>
 
     <style>
 
@@ -122,6 +122,10 @@
             text-align: -webkit-center;
             height: 30px;
         }
+
+        .showcondition {
+            display: None;
+        }
     </style>
 
 </head>
@@ -136,8 +140,24 @@
         <div id="chart-1">{{ output1|safe }}</div>
     </div>
     <div>
-        <h3>{{ chartTitle2|safe }}</h3>
-        <div id="chart-2">{{ output2|safe }}</div>
+        <h3>{{ chartTitle2_1|safe }}</h3>
+        <div id="chart-2-1">{{ output2_1|safe }}</div>
+    </div>
+    <div>
+        <h3>{{ chartTitle2_2|safe }}</h3>
+        <div id="chart-2-2">{{ output2_2|safe }}</div>
+    </div>
+    <div>
+        <h3>{{ chartTitle2_3|safe }}</h3>
+        <div id="chart-2-3">{{ output2_3|safe }}</div>
+    </div>
+    <div>
+        <h3>{{ chartTitle2_4|safe }}</h3>
+        <div id="chart-2-4">{{ output2_4|safe }}</div>
+    </div>
+    <div>
+        <h3>{{ chartTitle2_5|safe }}</h3>
+        <div id="chart-2-5">{{ output2_5|safe }}</div>
     </div>
 
     <div>
@@ -147,28 +167,28 @@
     <div>
         <h3>Simple chart</h3>
         <div class="wrapper">
-            <div class="box one">{{ output4.area1 }}</div>
-            <div class="box one">{{ output4.area2 }}</div>
             <div class="box one">{{ output4.area3 }}</div>
-            <div class="box one">{{ output4.area4 }}</div>
-            <div class="box one">{{ output4.area5 }}</div>
-            <div class="box one">{{ output4.area6 }}</div>
-            <div class="box seven">{{ output4.area7 }}</div>
-            <div class="box one">{{ output4.area8 }}</div>
-            <div class="box one">{{ output4.area9 }}</div>
-            <div class="box one">{{ output4.area10 }}</div>
+            <div class="box one">{{ output4.area7 }}</div>
             <div class="box one">{{ output4.area11 }}</div>
-            <div class="box twelve">{{ output4.area12 }}</div>
-            <div class="box one">{{ output4.area13 }}</div>
-            <div class="box one">{{ output4.area14 }}</div>
             <div class="box one">{{ output4.area15 }}</div>
-            <div class="box one">{{ output4.area16 }}</div>
-            <div class="box one">{{ output4.area17 }}</div>
-            <div class="box one">{{ output4.area18 }}</div>
             <div class="box one">{{ output4.area19 }}</div>
-            <div class="box one">{{ output4.area20 }}</div>
-            <div class="box one">{{ output4.area21 }}</div>
             <div class="box one">{{ output4.area22 }}</div>
+            <div class="box seven">{{ output4.area2 }}</div>
+            <div class="box one">{{ output4.area6 }}</div>
+            <div class="box one">{{ output4.area10 }}</div>
+            <div class="box one">{{ output4.area14 }}</div>
+            <div class="box one">{{ output4.area18 }}</div>
+            <div class="box twelve">{{ output4.area21 }}</div>
+            <div class="box one">{{ output4.area5 }}</div>
+            <div class="box one">{{ output4.area9 }}</div>
+            <div class="box one">{{ output4.area13 }}</div>
+            <div class="box one">{{ output4.area17 }}</div>
+            <div class="box one">{{ output4.area1 }}</div>
+            <div class="box one">{{ output4.area4 }}</div>
+            <div class="box one">{{ output4.area8 }}</div>
+            <div class="box one">{{ output4.area12 }}</div>
+            <div class="box one">{{ output4.area16 }}</div>
+            <div class="box one">{{ output4.area20 }}</div>
         </div>
     </div>
 </div>
