@@ -229,52 +229,87 @@ def playerDetail(request, pk):
                  "area21",
                  "area22"
                  ]
-    soccerfieldChart["area1"] = round(
-        touchmap.aggregate(area=Sum("area1", filter=Q(area1__gt=1), default=0))["area"] / total, 5) * 100
-    soccerfieldChart["area2"] = round(
-        touchmap.aggregate(area=Sum("area2", filter=Q(area2__gt=1), default=0))["area"] / total, 5) * 100
-    soccerfieldChart["area3"] = round(
-        touchmap.aggregate(area=Sum("area3", filter=Q(area3__gt=1), default=0))["area"] / total, 5) * 100
-    soccerfieldChart["area4"] = round(
-        touchmap.aggregate(area=Sum("area4", filter=Q(area4__gt=1), default=0))["area"] / total, 5) * 100
-    soccerfieldChart["area5"] = round(
-        touchmap.aggregate(area=Sum("area5", filter=Q(area5__gt=1), default=0))["area"] / total, 5) * 100
-    soccerfieldChart["area6"] = round(
-        touchmap.aggregate(area=Sum("area6", filter=Q(area6__gt=1), default=0))["area"] / total, 5) * 100
-    soccerfieldChart["area7"] = round(
-        touchmap.aggregate(area=Sum("area7", filter=Q(area7__gt=1), default=0))["area"] / total, 5) * 100
-    soccerfieldChart["area8"] = round(
-        touchmap.aggregate(area=Sum("area8", filter=Q(area8__gt=1), default=0))["area"] / total, 5) * 100
-    soccerfieldChart["area9"] = round(
-        touchmap.aggregate(area=Sum("area9", filter=Q(area9__gt=1), default=0))["area"] / total, 5) * 100
-    soccerfieldChart["area10"] = round(
-        touchmap.aggregate(area=Sum("area10", filter=Q(area10__gt=1), default=0))["area"] / total, 5) * 100
-    soccerfieldChart["area11"] = round(
-        touchmap.aggregate(area=Sum("area11", filter=Q(area11__gt=1), default=0))["area"] / total, 5) * 100
-    soccerfieldChart["area12"] = round(
-        touchmap.aggregate(area=Sum("area12", filter=Q(area12__gt=1), default=0))["area"] / total, 5) * 100
-    soccerfieldChart["area13"] = round(
-        touchmap.aggregate(area=Sum("area13", filter=Q(area13__gt=1), default=0))["area"] / total, 5) * 100
-    soccerfieldChart["area14"] = round(
-        touchmap.aggregate(area=Sum("area14", filter=Q(area14__gt=1), default=0))["area"] / total, 5) * 100
-    soccerfieldChart["area15"] = round(
-        touchmap.aggregate(area=Sum("area15", filter=Q(area15__gt=1), default=0))["area"] / total, 5) * 100
-    soccerfieldChart["area16"] = round(
-        touchmap.aggregate(area=Sum("area16", filter=Q(area16__gt=1), default=0))["area"] / total, 5) * 100
-    soccerfieldChart["area17"] = round(
-        touchmap.aggregate(area=Sum("area17", filter=Q(area17__gt=1), default=0))["area"] / total, 5) * 100
-    soccerfieldChart["area18"] = round(
-        touchmap.aggregate(area=Sum("area18", filter=Q(area18__gt=1), default=0))["area"] / total, 5) * 100
-    soccerfieldChart["area19"] = round(
-        touchmap.aggregate(area=Sum("area19", filter=Q(area19__gt=1), default=0))["area"] / total, 5) * 100
-    soccerfieldChart["area20"] = round(
-        touchmap.aggregate(area=Sum("area20", filter=Q(area20__gt=1), default=0))["area"] / total, 5) * 100
-    soccerfieldChart["area21"] = round(
-        touchmap.aggregate(area=Sum("area21", filter=Q(area21__gt=1), default=0))["area"] / total, 5) * 100
-    soccerfieldChart["area22"] = round(
-        touchmap.aggregate(area=Sum("area22", filter=Q(area22__gt=1), default=0))["area"] / total, 5) * 100
-    renderData = {'output1': column2D.render(), 'chartTitle1': 'Column',
-                  'output3': linechartObj.render(), 'chartTitle3': 'line',
+    soccerfieldChart["area1"] = round((
+                                              touchmap.aggregate(area=Sum("area1", filter=Q(area1__gt=1), default=0))[
+                                                  "area"] / total) * 100, 3)
+    soccerfieldChart["area2"] = round((
+                                              touchmap.aggregate(area=Sum("area2", filter=Q(area2__gt=1), default=0))[
+                                                  "area"] / total) * 100, 3)
+    soccerfieldChart["area3"] = round((
+                                              touchmap.aggregate(area=Sum("area3", filter=Q(area3__gt=1), default=0))[
+                                                  "area"] / total) * 100, 3)
+    soccerfieldChart["area4"] = round((
+                                              touchmap.aggregate(area=Sum("area4", filter=Q(area4__gt=1), default=0))[
+                                                  "area"] / total) * 100, 3)
+    soccerfieldChart["area5"] = round((
+                                              touchmap.aggregate(area=Sum("area5", filter=Q(area5__gt=1), default=0))[
+                                                  "area"] / total) * 100, 3)
+    soccerfieldChart["area6"] = round((
+                                              touchmap.aggregate(area=Sum("area6", filter=Q(area6__gt=1), default=0))[
+                                                  "area"] / total) * 100, 3)
+    soccerfieldChart["area7"] = round((
+                                              touchmap.aggregate(area=Sum("area7", filter=Q(area7__gt=1), default=0))[
+                                                  "area"] / total) * 100, 3)
+    soccerfieldChart["area8"] = round((
+                                              touchmap.aggregate(area=Sum("area8", filter=Q(area8__gt=1), default=0))[
+                                                  "area"] / total) * 100, 3)
+    soccerfieldChart["area9"] = round((
+                                              touchmap.aggregate(area=Sum("area9", filter=Q(area9__gt=1), default=0))[
+                                                  "area"] / total) * 100, 3)
+    soccerfieldChart["area10"] = round((
+                                               touchmap.aggregate(
+                                                   area=Sum("area10", filter=Q(area10__gt=1), default=0))[
+                                                   "area"] / total) * 100, 3)
+    soccerfieldChart["area11"] = round((
+                                               touchmap.aggregate(
+                                                   area=Sum("area11", filter=Q(area11__gt=1), default=0))[
+                                                   "area"] / total) * 100, 3)
+    soccerfieldChart["area12"] = round((
+                                               touchmap.aggregate(
+                                                   area=Sum("area12", filter=Q(area12__gt=1), default=0))[
+                                                   "area"] / total) * 100, 3)
+    soccerfieldChart["area13"] = round((
+                                               touchmap.aggregate(
+                                                   area=Sum("area13", filter=Q(area13__gt=1), default=0))[
+                                                   "area"] / total) * 100, 3)
+    soccerfieldChart["area14"] = round((
+                                               touchmap.aggregate(
+                                                   area=Sum("area14", filter=Q(area14__gt=1), default=0))[
+                                                   "area"] / total) * 100, 3)
+    soccerfieldChart["area15"] = round((
+                                               touchmap.aggregate(
+                                                   area=Sum("area15", filter=Q(area15__gt=1), default=0))[
+                                                   "area"] / total) * 100, 3)
+    soccerfieldChart["area16"] = round((
+                                               touchmap.aggregate(
+                                                   area=Sum("area16", filter=Q(area16__gt=1), default=0))[
+                                                   "area"] / total) * 100, 3)
+    soccerfieldChart["area17"] = round((
+                                               touchmap.aggregate(
+                                                   area=Sum("area17", filter=Q(area17__gt=1), default=0))[
+                                                   "area"] / total) * 100, 3)
+    soccerfieldChart["area18"] = round((
+                                               touchmap.aggregate(
+                                                   area=Sum("area18", filter=Q(area18__gt=1), default=0))[
+                                                   "area"] / total) * 100, 3)
+    soccerfieldChart["area19"] = round((
+                                               touchmap.aggregate(
+                                                   area=Sum("area19", filter=Q(area19__gt=1), default=0))[
+                                                   "area"] / total) * 100, 3)
+    soccerfieldChart["area20"] = round((
+                                               touchmap.aggregate(
+                                                   area=Sum("area20", filter=Q(area20__gt=1), default=0))[
+                                                   "area"] / total) * 100, 3)
+    soccerfieldChart["area21"] = round((
+                                               touchmap.aggregate(
+                                                   area=Sum("area21", filter=Q(area21__gt=1), default=0))[
+                                                   "area"] / total) * 100, 3)
+    soccerfieldChart["area22"] = round((
+                                               touchmap.aggregate(
+                                                   area=Sum("area22", filter=Q(area22__gt=1), default=0))[
+                                                   "area"] / total) * 100, 3)
+    renderData = {'output1': column2D.render(),
+                  'output3': linechartObj.render(),
                   'output4': soccerfieldChart, 'chartTitle5': 'soccer',
                   'player': player,
                   'competitions': competition}
@@ -324,34 +359,33 @@ def touchMap(request):
                     "area22": touchmap.area22,
                     }
     total = touchmap.total if touchmap.total != 0 else 1
-    touchmap_percentage_dic = {"area1": round(touchmap.area1 / total, 5) * 100,
-                               "area2": round(touchmap.area2 / total, 5) * 100,
-                               "area3": round(touchmap.area3 / total, 5) * 100,
-                               "area4": round(touchmap.area4 / total, 5) * 100,
-                               "area5": round(touchmap.area5 / total, 5) * 100,
-                               "area6": round(touchmap.area6 / total, 5) * 100,
-                               "area7": round(touchmap.area7 / total, 5) * 100,
-                               "area8": round(touchmap.area8 / total, 5) * 100,
-                               "area9": round(touchmap.area9 / total, 5) * 100,
-                               "area10": round(touchmap.area10 / total, 5) * 100,
-                               "area11": round(touchmap.area11 / total, 5) * 100,
-                               "area12": round(touchmap.area12 / total, 5) * 100,
-                               "area13": round(touchmap.area13 / total, 5) * 100,
-                               "area14": round(touchmap.area14 / total, 5) * 100,
-                               "area15": round(touchmap.area15 / total, 5) * 100,
-                               "area16": round(touchmap.area16 / total, 5) * 100,
-                               "area17": round(touchmap.area17 / total, 5) * 100,
-                               "area18": round(touchmap.area18 / total, 5) * 100,
-                               "area19": round(touchmap.area19 / total, 5) * 100,
-                               "area20": round(touchmap.area20 / total, 5) * 100,
-                               "area21": round(touchmap.area21 / total, 5) * 100,
-                               "area22": round(touchmap.area22 / total, 5) * 100,
+    touchmap_percentage_dic = {"area1": round((touchmap.area1 / total) * 100, 3),
+                               "area2": round((touchmap.area2 / total) * 100, 3),
+                               "area3": round((touchmap.area3 / total) * 100, 3),
+                               "area4": round((touchmap.area4 / total) * 100, 3),
+                               "area5": round((touchmap.area5 / total) * 100, 3),
+                               "area6": round((touchmap.area6 / total) * 100, 3),
+                               "area7": round((touchmap.area7 / total) * 100, 3),
+                               "area8": round((touchmap.area8 / total) * 100, 3),
+                               "area9": round((touchmap.area9 / total) * 100, 3),
+                               "area10": round((touchmap.area10 / total) * 100, 3),
+                               "area11": round((touchmap.area11 / total) * 100, 3),
+                               "area12": round((touchmap.area12 / total) * 100, 3),
+                               "area13": round((touchmap.area13 / total) * 100, 3),
+                               "area14": round((touchmap.area14 / total) * 100, 3),
+                               "area15": round((touchmap.area15 / total) * 100, 3),
+                               "area16": round((touchmap.area16 / total) * 100, 3),
+                               "area17": round((touchmap.area17 / total) * 100, 3),
+                               "area18": round((touchmap.area18 / total) * 100, 3),
+                               "area19": round((touchmap.area19 / total) * 100, 3),
+                               "area20": round((touchmap.area20 / total) * 100, 3),
+                               "area21": round((touchmap.area21 / total) * 100, 3),
+                               "area22": round((touchmap.area22 / total) * 100, 3),
                                }
 
     context = {'touchmap': touchmap_dic, 'touchmap_percentage': touchmap_percentage_dic, "opponent": opponent,
                "player_name": player_name,
                "player_number": player_number}
-    print(context)
     return render(request, 'touchbox/touchmap.html', context)
 
 

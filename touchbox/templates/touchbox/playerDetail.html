@@ -19,9 +19,13 @@
     <script type="text/javascript" src="/static/js/showcontent.js" defer></script>
 
     <style>
+
         .touchmapdetailimage {
             background-image: url({% static 'touchbox/attacking_dir.jpeg' %});
-            height: 50%;
+            margin: 0 auto;
+            height: 50px;
+            width: 200px;
+            padding: 10px;
             background-position: center;
             background-repeat: no-repeat;
             background-size: cover;
@@ -176,68 +180,69 @@
         <div id="chart-3">{{ output3|safe }}</div>
     </div>
     <div>
-        <h3>Simple chart</h3>
-        <div class="wrapper">
-            <div class="box one">{{ output4.area3 }}</div>
-            <div class="box one">{{ output4.area7 }}</div>
-            <div class="box one">{{ output4.area11 }}</div>
-            <div class="box one">{{ output4.area15 }}</div>
-            <div class="box one">{{ output4.area19 }}</div>
-            <div class="box one">{{ output4.area22 }}</div>
-            <div class="box seven">{{ output4.area2 }}</div>
-            <div class="box one">{{ output4.area6 }}</div>
-            <div class="box one">{{ output4.area10 }}</div>
-            <div class="box one">{{ output4.area14 }}</div>
-            <div class="box one">{{ output4.area18 }}</div>
-            <div class="box twelve">{{ output4.area21 }}</div>
-            <div class="box one">{{ output4.area5 }}</div>
-            <div class="box one">{{ output4.area9 }}</div>
-            <div class="box one">{{ output4.area13 }}</div>
-            <div class="box one">{{ output4.area17 }}</div>
-            <div class="box one">{{ output4.area1 }}</div>
-            <div class="box one">{{ output4.area4 }}</div>
-            <div class="box one">{{ output4.area8 }}</div>
-            <div class="box one">{{ output4.area12 }}</div>
-            <div class="box one">{{ output4.area16 }}</div>
-            <div class="box one">{{ output4.area20 }}</div>
-        </div>
-        <div class="touchmapdetailimage">
+        <h3>Soccerfield chart</h3>
+        <div>
+            <div class="wrapper">
+                <div class="box one">{{ output4.area3 }}</div>
+                <div class="box one">{{ output4.area7 }}</div>
+                <div class="box one">{{ output4.area11 }}</div>
+                <div class="box one">{{ output4.area15 }}</div>
+                <div class="box one">{{ output4.area19 }}</div>
+                <div class="box one">{{ output4.area22 }}</div>
+                <div class="box seven">{{ output4.area2 }}</div>
+                <div class="box one">{{ output4.area6 }}</div>
+                <div class="box one">{{ output4.area10 }}</div>
+                <div class="box one">{{ output4.area14 }}</div>
+                <div class="box one">{{ output4.area18 }}</div>
+                <div class="box twelve">{{ output4.area21 }}</div>
+                <div class="box one">{{ output4.area5 }}</div>
+                <div class="box one">{{ output4.area9 }}</div>
+                <div class="box one">{{ output4.area13 }}</div>
+                <div class="box one">{{ output4.area17 }}</div>
+                <div class="box one">{{ output4.area1 }}</div>
+                <div class="box one">{{ output4.area4 }}</div>
+                <div class="box one">{{ output4.area8 }}</div>
+                <div class="box one">{{ output4.area12 }}</div>
+                <div class="box one">{{ output4.area16 }}</div>
+                <div class="box one">{{ output4.area20 }}</div>
+            </div>
+            <div class="touchmapdetailimage">
+            </div>
         </div>
     </div>
 </div>
-<br>
-<div>
-    {% block content %}
-        <table>
-            <thead>
-            <th>id</th>
-            <th>name</th>
-            <th>matchdate</th>
-            <th>opponent</th>
-            <th>location</th>
-            <th>wdl</th>
-            </thead>
-            <tbody>
-            {% for competition in competitions %}
-                <tr>
-                    <a>
-                        <td>
-                            <a href="http://localhost:8000/touchbox/touchmaps?player={{ player.id }}&competition={{ competition.id }}">
-                                {{ competition.id }}</a>
-                        </td>
-
-                        <td>{{ competition.name }}</td>
-                        <td>{{ competition.matchdate }}</td>
-                        <td>{{ competition.opponent }}</td>
-                        <td>{{ competition.location }}</td>
-                        <td>{{ competition.wdl }}</td>
-                    </a>
-                </tr>
-            {% endfor %}
-
-            </tbody>
-        </table>
-    {% endblock content %}
 </div>
+{% block content %}
+    <table>
+        <thead>
+        <th>id</th>
+        <th>name</th>
+        <th>matchdate</th>
+        <th>opponent</th>
+        <th>location</th>
+        <th>wdl</th>
+        </thead>
+        <tbody>
+        {% for competition in competitions %}
+            <tr>
+                <a>
+                    <td>
+                        <a href="http://localhost:8000/touchbox/touchmaps?player={{ player.id }}&competition={{ competition.id }}">
+                            {{ competition.id }}</a>
+                    </td>
+
+                    <td>{{ competition.name }}</td>
+                    <td>{{ competition.matchdate }}</td>
+                    <td>{{ competition.opponent }}</td>
+                    <td>{{ competition.location }}</td>
+                    <td>{{ competition.wdl }}</td>
+                </a>
+            </tr>
+        {% endfor %}
+
+        </tbody>
+    </table>
+{% endblock content %}
+
 </body>
 </html>
