@@ -17,6 +17,21 @@
     </style>
 </head>
 <style>
+    .touchmapimage {
+        background-image: url({% static 'touchbox/attacking_dir.jpeg' %});
+        margin: 0 auto;
+        height: 50px;
+        width: 200px;
+        padding: 10px;
+
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
     .playerWrapper {
         display: flex;
     }
@@ -135,30 +150,35 @@
     <h1>{{ player_number }} & {{ player_name }} vs {{ opponent }}</h1>
 </div>
 <div class="contentWrapper">
-    <div class="wrapper">
-        <div class="box one">{{ touchmap_percentage.area1 }}</div>
-        <div class="box one">{{ touchmap_percentage.area2 }}</div>
-        <div class="box one">{{ touchmap_percentage.area3 }}</div>
-        <div class="box one">{{ touchmap_percentage.area4 }}</div>
-        <div class="box one">{{ touchmap_percentage.area5 }}</div>
-        <div class="box one">{{ touchmap_percentage.area6 }}</div>
-        <div class="box seven">{{ touchmap_percentage.area7 }}</div>
-        <div class="box one">{{ touchmap_percentage.area8 }}</div>
-        <div class="box one">{{ touchmap_percentage.area9 }}</div>
-        <div class="box one">{{ touchmap_percentage.area10 }}</div>
-        <div class="box one">{{ touchmap_percentage.area11 }}</div>
-        <div class="box twelve">{{ touchmap_percentage.area12 }}</div>
-        <div class="box one">{{ touchmap_percentage.area13 }}</div>
-        <div class="box one">{{ touchmap_percentage.area14 }}</div>
-        <div class="box one">{{ touchmap_percentage.area15 }}</div>
-        <div class="box one">{{ touchmap_percentage.area16 }}</div>
-        <div class="box one">{{ touchmap_percentage.area17 }}</div>
-        <div class="box one">{{ touchmap_percentage.area18 }}</div>
-        <div class="box one">{{ touchmap_percentage.area19 }}</div>
-        <div class="box one">{{ touchmap_percentage.area20 }}</div>
-        <div class="box one">{{ touchmap_percentage.area21 }}</div>
-        <div class="box one">{{ touchmap_percentage.area22 }}</div>
+    <div class="fieldwrapper">
+        <div class="wrapper">
+            <div class="box one">{{ touchmap_percentage.area3 }}</div>
+            <div class="box one">{{ touchmap_percentage.area7 }}</div>
+            <div class="box one">{{ touchmap_percentage.area11 }}</div>
+            <div class="box one">{{ touchmap_percentage.area15 }}</div>
+            <div class="box one">{{ touchmap_percentage.area19 }}</div>
+            <div class="box one">{{ touchmap_percentage.area22 }}</div>
+            <div class="box seven">{{ touchmap_percentage.area2 }}</div>
+            <div class="box one">{{ touchmap_percentage.area6 }}</div>
+            <div class="box one">{{ touchmap_percentage.area10 }}</div>
+            <div class="box one">{{ touchmap_percentage.area14 }}</div>
+            <div class="box one">{{ touchmap_percentage.area18 }}</div>
+            <div class="box twelve">{{ touchmap_percentage.area21 }}</div>
+            <div class="box one">{{ touchmap_percentage.area5 }}</div>
+            <div class="box one">{{ touchmap_percentage.area9 }}</div>
+            <div class="box one">{{ touchmap_percentage.area13 }}</div>
+            <div class="box one">{{ touchmap_percentage.area17 }}</div>
+            <div class="box one">{{ touchmap_percentage.area1 }}</div>
+            <div class="box one">{{ touchmap_percentage.area4 }}</div>
+            <div class="box one">{{ touchmap_percentage.area8 }}</div>
+            <div class="box one">{{ touchmap_percentage.area12 }}</div>
+            <div class="box one">{{ touchmap_percentage.area16 }}</div>
+            <div class="box one">{{ touchmap_percentage.area20 }}</div>
+        </div>
+        <div class="touchmapimage">
+        </div>
     </div>
+
 
     {% block content %}
         <table>
