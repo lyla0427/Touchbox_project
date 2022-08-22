@@ -14,8 +14,9 @@ def playerList(request):
 def playerDetail(request, pk):
     season = request.GET.get("season", None)
     player = Player.objects.get(id=pk, season=season)
-    competition = Competition.objects.filter(season=season)
     touchmap = TouchMap.objects.filter(player=pk, competition__season=season).order_by("competition__matchdate")
+    touchmap_list = touchmap.values_list('id', flat=True)
+    competition = Competition.objects.filter(touchmap__in=touchmap_list).order_by("matchdate")
 
     # COLUMN CHART
     # Chart data is passed to the `dataSource` parameter, as dictionary in the form of key-value pairs.
@@ -192,7 +193,7 @@ def playerDetail(request, pk):
 
     chartData = OrderedDict()
     for queryset in touchmap:
-        chartData[queryset.competition.opponent] = queryset.playingtime
+        chartData[queryset.competition.opponent + " " + str(queryset.competition.matchdate)] = queryset.playingtime
 
     for key, value in chartData.items():
         data = {}
@@ -200,7 +201,7 @@ def playerDetail(request, pk):
         data["value"] = value
         linedataSource["data"].append(data)
 
-    linechartObj = FusionCharts('line', 'ex3', '600', '400', 'chart-3', 'json', linedataSource)
+    linechartObj = FusionCharts('line', 'ex3', '600', '480', 'chart-3', 'json', linedataSource)
 
     # soccerfieldChart
 
